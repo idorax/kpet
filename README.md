@@ -4,7 +4,7 @@ KPET - Kernel Patch-Evaluated Testing
 
 KPET is a framework which will execute targeted testing based on changes introduced
 in the patch, e.g. a network driver or similar would trigger network related testing
-to be invoked, or a filesystem change would invoke filesystem testing.  
+to be invoked, or a filesystem change would invoke filesystem testing.
 
 Install KPET
 -------------
@@ -36,6 +36,13 @@ $ kpet run print-test-cases 001.patch
 To generate complete Beaker XML:
 ```bash
 $ kpet run generate --description 'skt ##KVER##' -a aarch64 -k '##KPG_URL##' -t upstream 001.patch
+```
+
+To geterate complete Beaker XML for a single task:
+```bash
+$ kpet run generate --task '##TASKNAME##' \
+        --description 'skt ##KVER##' \
+        -a aarch64 -k '##KPG_URL##' -t upstream 001.patch
 ```
 
 You have to run these commands in the kpet database directory, or specify
